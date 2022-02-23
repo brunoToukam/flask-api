@@ -12,3 +12,5 @@ Werkzeug==2.0.2
 scikit-learn==1.0.2
 pandas==1.4.1
 rake-nltk==1.0.6
+flask_swagger_ui==3.36.0
+flask_cors==3.0.10

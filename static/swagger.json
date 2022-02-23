@@ -1,0 +1,105 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "Crowd",
+      "version": "1.0.0",
+      "title": "Flask-API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "servers": [
+      {
+        "url": "/"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Investor Request",
+        "description": "Example API for requesting and return investor requests"
+      }
+    ],
+    "paths": {
+      "/recommend/startups/1": {
+        "put": {
+          "summary": "Get Recommendations",
+          "tags": [
+            "Investor Request"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "description": "Investor Request id",
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "Book Request Object",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/investorRequest"
+                }
+              }
+            }
+          },
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/investorRequest"
+              }
+            },
+            "400": {
+              "description": "Failed. Bad post data."
+            }
+          }
+        }
+      }   
+    },
+    "components": {
+      "schemas": {
+        "id": {
+          "properties": {
+            "uuid": {
+              "type": "string"
+            }
+          }
+        },
+        "investorRequest": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "format": "string"
+            },
+            "fundingType": {
+              "type": "string",
+              "format": "number"
+            },
+            "location": {
+              "type": "string",
+              "format": "string"
+            },
+            "description": {
+              "type": "string",
+              "format": "string"
+            },
+            "fullDescription": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        }
+      }
+    }
+}

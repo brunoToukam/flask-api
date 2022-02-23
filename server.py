@@ -2,12 +2,32 @@ from curses import resetty
 from distutils.log import debug
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
+from flask_swagger_ui import get_swaggerui_blueprint
+from routes import request_api
 import pandas as pd
 import train
 
 # app
 app = Flask(__name__)
 api = Api(app)
+
+'''
+### swagger specific ###
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "Flask-API"
+    }
+)
+app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
+### end swagger specific ###
+
+
+app.register_blueprint(request_api.get_blueprint())
+'''
 
 recommend_get_args = reqparse.RequestParser()
 recommend_get_args.add_argument('name', type=str, help='Name of the investor')
