@@ -29,6 +29,7 @@ app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 app.register_blueprint(request_api.get_blueprint())
 '''
 
+
 recommend_get_args = reqparse.RequestParser()
 recommend_get_args.add_argument('name', type=str, help='Name of the investor')
 recommend_get_args.add_argument('fundingType', type=str, help='Choose if the type is Pre-Serie A, Serie A,...')
