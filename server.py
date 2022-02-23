@@ -11,6 +11,10 @@ import train
 app = Flask(__name__)
 api = Api(app)
 
+
+@app.route('/')
+def myapi():
+    return "<h1>Flask API</>"
 '''
 ### swagger specific ###
 SWAGGER_URL = '/swagger'
