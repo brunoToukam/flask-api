@@ -14,7 +14,7 @@ api = Api(app)
 
 @app.route('/')
 def myapi():
-    return "<h1>Flask API</>"
+    return "<h1>Flask API</h1>"
 '''
 ### swagger specific ###
 SWAGGER_URL = '/swagger'
